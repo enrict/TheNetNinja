@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TNN - Data Binding</title>
-		<link rel="stylesheet" href="styles.css">
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!--declaring the Vue CDN-->
-
+    <title>TNN - Events</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Bootstrap and Bootstrap-Vue CSS to the <head> section -->
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
 </head>
 <body>
     <div id="app">
-			<h1>{{greet('morning')}}</h1>
-				<p>Name: {{name}}</p>
-				<p>Job: {{job	}}</p>
-				<a v-bind:href="website" target="_blank">Link to github</a>
-				<input type="text" v-model="website"> 
-				<p v-html="websiteTag"></p>
+			<b-container>
+          <b-jumbotron>
+            <h1>{{title}}</h1>
+                    <p>Hector is {{age}} years old</p>
+                    <p>Play around with Hector's age with the following buttons :)</p>
+                    <p>*PS: Double click the Subtract/Add 10 Years for it to work</p>
+                    <hr class="my-4" />
+                    <b-button v-on:click="sub(1)" variant="danger">Subtract a Year</b-button>
+                    <b-button v-on:click="add(1)" variant="primary">Add a Year</b-button>
+                    <b-button v-on:dblclick="sub(10)" variant="danger">Subtract 10 Years</b-button>
+                    <b-button v-on:dblclick="add(10)" variant="primary">Add 10 Years</b-button>
+          </b-jumbotron>
+          <h2>Mouse Tracking</h2>
+          <p>This only works by dragging your mouse pointer over the blank canvas area below</p>
+          <div id="canvas" v-on:mousemove="mouseMotion">{{x}}, {{y}}</div>
+      </b-container>
 		</div>
-		<script src="app.js"></script> <!--declaring the instance-->
+    
+    <!-- Add Vue and BootstrapVue scripts just before the closing head tag -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="app.js"></script> <!--declaring the instance-->
 </body>
 </html>

@@ -1,3 +1,3 @@
-# Data Binding
+# Events
 
-This mini session is part 4 of the tutorial, and it gitlooks at how to bind data to elements/components.
+This mini session is part 5 of the tutorial, and it looks at how events work.
